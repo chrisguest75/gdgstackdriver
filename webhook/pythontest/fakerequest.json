@@ -1,0 +1,8 @@
+{
+    "intentName": "createpassword",
+    "memoryVariables": [{ "entity": "sys.number", "value": "160", "mandatory": true, "entity_keys": [], "prompts": ["How long would like it to be?"], "times_prompted": 1, "max_prompts": 3, "persistent": false, "system_entity": true, "label": "length", "requested": false }],
+    "chatResult": { "topicIn": "", "score": 1.0, "query": "160 characters", "answer": "ok", "history": "", "elapsedTime": 0.0, "topic_out": "" },
+    "variablesMap": { "length": { "entity": "sys.number", "value": "160", "mandatory": true, "entity_keys": [], "prompts": ["How long would like it to be?"], "times_prompted": 1, "max_prompts": 3, "persistent": false, "system_entity": true, "label": "length", "requested": false } },
+    "clientVariables": {},
+    "originatingAiid": "dabaf1ab-3ec6-45cb-81d5-79ac977a63ac"
+}
