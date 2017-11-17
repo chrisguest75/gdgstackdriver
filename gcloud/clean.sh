@@ -1,11 +1,13 @@
+export SERVICEACCOUNTNAME=webhook
+export GCPPROJECT=webhook-project-35299
 
 . ../cloud-env.sh
 
-gcloud ${GCLOUDCONFIGURATION} ${GCPPROJECT} compute firewall-rules create ${SERVICEACCOUNTNAME}-fw-ssh --network "default"
-gcloud ${GCLOUDCONFIGURATION} ${GCPPROJECT} compute firewall-rules create ${SERVICEACCOUNTNAME}-network-allow-http --network="default" 
-gcloud ${GCLOUDCONFIGURATION} ${GCPPROJECT} compute firewall-rules create ${SERVICEACCOUNTNAME}-network-allow-https --network="default"
+gcloud ${GCLOUDCONFIGURATION} --project=${GCPPROJECT} compute firewall-rules delete ${SERVICEACCOUNTNAME}-fw-ssh 
+gcloud ${GCLOUDCONFIGURATION} --project=${GCPPROJECT} compute firewall-rules delete ${SERVICEACCOUNTNAME}-network-allow-http 
+gcloud ${GCLOUDCONFIGURATION} --project=${GCPPROJECT} compute firewall-rules delete ${SERVICEACCOUNTNAME}-network-allow-https
 
-gcloud ${GCLOUDCONFIGURATION} ${GCPPROJECT} compute instances delete "${SERVICEACCOUNTNAME}-vm1" 
+gcloud ${GCLOUDCONFIGURATION} --project=${GCPPROJECT} compute instances delete "${SERVICEACCOUNTNAME}-vm1" --zone=${zone} 
 
-gcloud ${GCLOUDCONFIGURATION} ${GCPPROJECT} iam service-accounts create ${SERVICEACCOUNTNAME}-sa 
+gcloud ${GCLOUDCONFIGURATION} --project=${GCPPROJECT} iam service-accounts delete ${SERVICEACCOUNTEMAIL} 
 
