@@ -114,6 +114,8 @@ then
         check_exitcode $? ${SKIPONERROR}
         gcloud ${GCLOUDCONFIGURATION} ${GCPPROJECT} projects add-iam-policy-binding ${PROJECTNAME} --member="serviceAccount:${serviceaccountname}" --role='roles/monitoring.metricWriter'
         check_exitcode $? ${SKIPONERROR}
+        gcloud ${GCLOUDCONFIGURATION} ${GCPPROJECT} projects add-iam-policy-binding ${PROJECTNAME} --member="serviceAccount:${serviceaccountname}" --role='roles/storage.objectViewer'
+        check_exitcode $? ${SKIPONERROR}
 
         gcloud ${GCLOUDCONFIGURATION} ${GCPPROJECT} compute firewall-rules create ${NAME}-fw-ssh --network "default" --allow tcp:22,icmp
         check_exitcode $? ${SKIPONERROR}
