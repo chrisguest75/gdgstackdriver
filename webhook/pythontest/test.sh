@@ -9,6 +9,7 @@ docker run -p 8109:8080 -d -e=STACKDRIVER_PROJECT=${GCPPROJECT} --name ${NAME} e
 
 sleep 4
 
+#URL=http://35.195.152.255:80
 URL=http://localhost:8109
 ROUTE=chat
 curl -d '' -X get ${URL}/health
