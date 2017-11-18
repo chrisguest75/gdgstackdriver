@@ -42,8 +42,9 @@ For GDG Workshop on building a chatbot for Hutoma using Python, Docker, GCP and 
 * cd ./webhook/gcplogtest
 * ./build.sh
 * cat ./pullandrun.sh
-* gcloud --configuration=<config> --project=<projectid> compute ssh webhook-vm1
-* Now use the commands to pull and run the docker container
+* cat ./cloud-env.sh
+* gcloud --configuration=[config] --project=[projectid] compute ssh webhook-vm1
+* Now use the commands to pull and run the docker container on the webhook-vm.
 
 # Instructions Stackdriver
 * To see the logs in Stackdriver you will need to create your free basic tier account in the GCP console
@@ -53,8 +54,14 @@ For GDG Workshop on building a chatbot for Hutoma using Python, Docker, GCP and 
 * cd ./webhook/pythontest
 * ./build.sh
 * cat ./pullandrun.sh
-* gcloud --configuration=<config> --project=<projectid> compute ssh webhook-vm1
-* Now use the commands to pull and run the docker container
+* cat ./cloud-env.sh
+* gcloud --configuration=[config] --project=[projectid] compute ssh webhook-vm1
+* Now use the commands to pull and run the docker container on the webhook-vm.
+* curl http://localhost/health
+* You can test the webhook by running ./remoteip.sh and looking for the natIP
+* curl http://[natip]/health
+* Check the stackdriver logs for the container logs
+
 
 # Go to hutoma
 * Create an account - https://console.hutoma.ai/pages/login.php
@@ -68,7 +75,7 @@ For GDG Workshop on building a chatbot for Hutoma using Python, Docker, GCP and 
 * Add an entity sys.number- give it the name length
 * Add a prompt How long would you like it to be?
 * Add a response password
-* Get the external ip and add the webhook http://<externalip>:80/chat
+* Get the external ip and add the webhook http://[externalip]:80/chat
 * Go back to training
 * Ask I want a password
 * It will ask how long you want it to be
