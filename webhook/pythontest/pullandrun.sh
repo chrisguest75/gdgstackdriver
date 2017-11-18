@@ -1,7 +1,9 @@
 #!/bin/bash
 
+echo "NOTE: These commands need to be run on the vm we've built on gcp"
+
 export SERVICEACCOUNTNAME=webhook
-export GCPPROJECT=webhook-project-35299
+#export GCPPROJECT=webhook-project-35299
 export NAME=pythontest
 
 . ../../cloud-env.sh
