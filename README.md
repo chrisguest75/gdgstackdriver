@@ -2,8 +2,11 @@
 For GDG Workshop on building a chatbot for Hutoma using Python, Docker, GCP and Stackdriver.
 
 #Prerequisites
-* Google Cloud SDK
-* Docker 
+* GCP Account - https://cloud.google.com
+* Google Cloud SDK - https://cloud.google.com/sdk/
+* Docker - Docker for 'x' - 
+  * https://store.docker.com/editions/community/docker-ce-desktop-windows
+  * https://www.docker.com/docker-mac
 
 
 # Instructions for infrastructure 
