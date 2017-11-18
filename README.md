@@ -16,7 +16,7 @@ For GDG Workshop on building a chatbot for Hutoma using Python, Docker, GCP and 
 * git clone https://github.com/chrisguest75/gdgstackdriver.git
 * cd gdgstackdriver
 * gcloud config configurations list
-* Use the name and project to edit the local cloud-env.sh
+* Use the name and project to edit the local cloud-env.sh GCPPROJECT & GCLOUDCONFIGURATION
   * Use vi ./cloud_env.sh (NOTE: i for insert and esc :wq for exit after editing)
 * Use cat ./cloud_env.sh to verify 
 * Goto gcloud directory inside the repo clone.
@@ -34,7 +34,12 @@ For GDG Workshop on building a chatbot for Hutoma using Python, Docker, GCP and 
 
 
 # Instructions for gcplogstest containers
-* cd ./webhooks/gcplogtest
+* On your local machine
+* gcloud config configurations list
+* Use the name and project to edit the local cloud-env.sh GCPPROJECT & GCLOUDCONFIGURATION
+  * Use vi ./cloud_env.sh (NOTE: i for insert and esc :wq for exit after editing)
+* Use cat ./cloud_env.sh to verify 
+* cd ./webhook/gcplogtest
 * ./build.sh
 * cat ./pullandrun.sh
 * gcloud --configuration=<config> --project=<projectid> compute ssh webhook-vm1
@@ -45,7 +50,7 @@ For GDG Workshop on building a chatbot for Hutoma using Python, Docker, GCP and 
 * Check the stackdriver logs for the container logs
 
 # Instructions for pythontest
-* cd ./webhooks/pythontest
+* cd ./webhook/pythontest
 * ./build.sh
 * cat ./pullandrun.sh
 * gcloud --configuration=<config> --project=<projectid> compute ssh webhook-vm1
