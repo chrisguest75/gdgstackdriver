@@ -130,7 +130,7 @@ then
         if [[ ${NAME} = "webhook" ]]
         then
             print "Firewall - ${NAME}-network-allow-http" ${cyan}
-            gcloud ${GCLOUDCONFIGURATION} ${GCPPROJECT} compute firewall-rules create ${NAME}-network-allow-http --network="default" --allow=tcp:80 --source-ranges=0.0.0.0/0 --target-tags=http-server
+            gcloud ${GCLOUDCONFIGURATION} ${GCPPROJECT} compute firewall-rules create ${NAME}-network-allow-http --network="default" --allow=tcp:8080 --source-ranges=0.0.0.0/0 --target-tags=http-server
             check_exitcode $? ${SKIPONERROR}
             print "Firewall - ${NAME}-network-allow-https" ${cyan}
             gcloud ${GCLOUDCONFIGURATION} ${GCPPROJECT} compute firewall-rules create ${NAME}-network-allow-https --network="default" --allow=tcp:443 --source-ranges=0.0.0.0/0 --target-tags=https-server

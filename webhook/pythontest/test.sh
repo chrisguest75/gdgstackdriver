@@ -15,6 +15,6 @@ ROUTE=chat
 curl -d '' -X get ${URL}/health
 curl -d @./fakerequest.json -H "Content-Type: application/json" -X post ${URL}/${ROUTE}
 
-docker stop ${NAME}
-docker rm ${NAME}
+#docker stop ${NAME}
+#docker rm ${NAME}
 
