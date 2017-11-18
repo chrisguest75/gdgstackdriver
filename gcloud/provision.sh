@@ -1,6 +1,9 @@
 #Upgrade OS
 #Install Docker
 
+######################################
+# Install docker
+######################################
 #https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/
 sudo apt-get update
 sudo apt-get install     apt-transport-https     ca-certificates     curl     software-properties-common
@@ -14,6 +17,9 @@ exit
 #relogin and try the sanity test
 sudo docker run hello-world
 
+######################################
+# Install stackdriver
+######################################
 
 #stackdriver
 sudo curl -sSO https://repo.stackdriver.com/stack-install.sh
@@ -21,6 +27,9 @@ sudo bash stack-install.sh --write-gcm
 sudo curl -sSO https://dl.google.com/cloudagents/install-logging-agent.sh
 sudo bash install-logging-agent.sh
 
+######################################
+# Install gcp stackdriver driver for docker
+######################################
 
 # use gcp logs driver
 sudo systemctl stop docker

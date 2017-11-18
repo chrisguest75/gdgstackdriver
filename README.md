@@ -7,22 +7,31 @@ For GDG Workshop on building a chatbot for Hutoma using Python, Docker, GCP and 
 * Docker - Docker for 'x' - 
   * https://store.docker.com/editions/community/docker-ce-desktop-windows
   * https://www.docker.com/docker-mac
-
+* An editor such as Visual Studio Code or Atom. 
 
 # Instructions for infrastructure 
 * You'll need to have a GCP account - $300 worth of free credits. 
 * Create a project and add billing to it.  This won't cost $300. 
 * Open a cloud shell in the GCP web console.
 * git clone https://github.com/chrisguest75/gdgstackdriver.git
-* Edit the local cloud-env.sh
+* cd gdgstackdriver
 * gcloud config configurations list
+* Use the name and project to edit the local cloud-env.sh
+  * Use vi ./cloud_env.sh (NOTE: i for insert and esc :wq for exit after editing)
+* Use cat ./cloud_env.sh to verify 
 * Goto gcloud directory inside the repo clone.
 * Use the NAME and PROJECT values for project when calling following script 
-  *  ./build.sh build -g=cloudshell-739 -p=webhook-project-35299 -e
-* cat provision.sh
-* gcloud ssh webhook-vm1
-* Now copy and execute the commands inside provision.sh
-* Docker, Stackdriver and gcplogs override 
+  *  ./build.sh build -g=cloudshell-739 -p=project-name-here -
+  * This will create a VM, a few firewall rules and service account
+  * In GCP you can have a look around at the VPC network firewall rules, instances, etc
+* Now we will install Docker, Stackdriver and gcplogs override 
+  * cat ./provision.sh
+  * SSH (make sure you are on new vm)
+    * gcloud compute ssh webhook-vm1
+    * Now copy and execute the commands inside ./provision.sh one by one
+    * This can take a few minutes waiting for the installations 
+    * NOTE: It might need prompts to confirm installation
+
 
 # Instructions for gcplogstest containers
 * cd ./webhooks/gcplogtest
