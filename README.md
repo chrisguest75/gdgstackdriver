@@ -49,11 +49,19 @@ For GDG Workshop on building a chatbot for Hutoma using Python, Docker, GCP and 
 * Add a user expression - I want a password
 * Add a user expression - I was a 16 character password
 * Add an entity sys.number- give it the name length
+* Add a prompt How long would you like it to be?
 * Add a response password
 * Get the external ip and add the webhook http://<externalip>:80/chat
+* Go back to training
+* Ask I want a password
+* It will ask how long you want it to be
+* Enter a number
 
-
-
+# Add a dashboard
+* Goto stackdriver after generating a few passwords
+* Add a logmetric (a query that when matched it adds to a counter)
+* Add a dashboard to graph the metric
+* (resource.type="gce_instance" jsonPayload.message="password generated") 
 
 TODO:
 * Deploy the infra - enable firewall etc
