@@ -1,12 +1,56 @@
 # gdgstackdriver
 For GDG Workshop on building a chatbot for Hutoma using Python, Docker, GCP and Stackdriver.
 
-# Instructions 
+#Prerequisites
+* Google Cloud SDK
+* Docker 
+
+
+# Instructions for infrastructure 
 * You'll need to have a GCP account - $300 worth of free credits. 
 * Create a project and add billing to it.  This won't cost $300. 
 * Open a cloud shell in the GCP web console.
 * git clone https://github.com/chrisguest75/gdgstackdriver.git
 * Edit the local cloud-env.sh
+* gcloud config configurations list
+* Goto gcloud directory inside the repo clone.
+* Use the NAME and PROJECT values for project when calling following script 
+  *  ./build.sh build -g=cloudshell-739 -p=webhook-project-35299 -e
+* cat provision.sh
+* gcloud ssh webhook-vm1
+* Now copy and execute the commands inside provision.sh
+* Docker, Stackdriver and gcplogs override 
+
+# Instructions for gcplogstest containers
+* cd ./webhooks/gcplogtest
+* ./build.sh
+* cat ./pullandrun.sh
+* gcloud --configuration=<config> --project=<projectid> compute ssh webhook-vm1
+* Now use the commands to pull and run the docker container
+
+# Instructions Stackdriver
+* To see the logs in Stackdriver you will need to create your free basic tier account in the GCP console
+* Check the stackdriver logs for the container logs
+
+# Instructions for pythontest
+* cd ./webhooks/pythontest
+* ./build.sh
+* cat ./pullandrun.sh
+* gcloud --configuration=<config> --project=<projectid> compute ssh webhook-vm1
+* Now use the commands to pull and run the docker container
+
+# Go to hutoma
+* Create an account - https://console.hutoma.ai/pages/login.php
+* Create a new bot.
+* Give it a name 
+* Add chit chat skill 
+* Type hello into chat window
+* Add an intent - call it password
+* Add a user expression - I want a password
+* Add a user expression - I was a 16 character password
+* Add an entity sys.number- give it the name length
+* Add a response password
+* Get the external ip and add the webhook http://<externalip>:80/chat
 
 
 
